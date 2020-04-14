@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+params_cull_mode = 1
+params_grow = true
+params_grow_amount = 0.01
+albedo_color = Color( 0, 0, 0, 0.27451 )
+
+[sub_resource type="SpatialMaterial" id=2]
+next_pass = SubResource( 1 )
+flags_transparent = true
+albedo_color = Color( 1, 1, 1, 0.27451 )
+
+[sub_resource type="CubeMesh" id=3]
+material = SubResource( 2 )
+size = Vector3( 0.95, 0.1, 0.95 )
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.45, 0.5, 0.45 )
+
+[node name="Root" type="Spatial"]
+
+[node name="Floor" type="MeshInstance" parent="."]
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+transform = Transform( 0.45, 0, 0, 0, 0.05, 0, 0, 0, 0.45, 0, 0, 0 )
+shape = SubResource( 4 )

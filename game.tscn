@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Environment" id=1]
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.854575, -0.410425, 0.318203, 0, 0.61272, 0.7903, -0.519328, -0.675371, 0.523615, 0, 4.19656, 0 )
+
+[node name="Camera" type="Camera" parent="."]

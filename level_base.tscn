@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://level_base.gd" type="Script" id=1]
+[ext_resource path="res://meshlib.meshlib" type="MeshLibrary" id=2]
+[ext_resource path="res://Ending.gd" type="Script" id=3]
+[ext_resource path="res://Inbounds.gd" type="Script" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.45, 2, 0.45 )
+
+[node name="Level" type="Spatial"]
+script = ExtResource( 1 )
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 2 )
+data = {
+"cells": PoolIntArray(  )
+}
+__meta__ = {
+"_editor_clip_": 0,
+"_editor_floor_": Vector3( 0, 0, 0 )
+}
+
+[node name="Buttons" type="Node" parent="GridMap"]
+
+[node name="Mechanisms" type="Node" parent="GridMap"]
+
+[node name="Start" type="Position3D" parent="."]
+
+[node name="Ending" type="Area" parent="."]
+script = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Ending"]
+shape = SubResource( 1 )
+
+[node name="GravityTimer" type="Timer" parent="Ending"]
+
+[node name="Inbounds" type="Area" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionPolygon" type="CollisionPolygon" parent="Inbounds"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -2, 0, 2 )
+depth = 15.0
+polygon = PoolVector2Array( 0, 0, 4, 0, 4, 4, 0, 4 )
+[connection signal="body_entered" from="Ending" to="Ending" method="_on_Ending_body_entered"]
+[connection signal="area_exited" from="Inbounds" to="Inbounds" method="_on_Inbounds_area_exited"]

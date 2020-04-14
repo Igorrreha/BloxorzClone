@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://level_base.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://DeadZone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://FloatTile.tscn" type="PackedScene" id=4]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_color = Color( 0.835294, 0.380392, 0.380392, 1 )
+
+[sub_resource type="CylinderMesh" id=2]
+material = SubResource( 1 )
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.1
+radial_segments = 10
+rings = 1
+
+[node name="Level" instance=ExtResource( 1 )]
+
+[node name="GridMap" parent="." index="0"]
+cell_size = Vector3( 1, 0.1, 1 )
+data = {
+"cells": PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 1610612736, 65528, 0, 0, 65529, 0, 1610612736, 65530, 0, 0, 65533, 0, 0, 65534, 0, 536870912, 65535, 0, 0, 65530, 3, 0, 65531, 3, 0, 65529, 4, 0, 65530, 4, 536870912, 65531, 4, 1610612736, 65531, 5, 1610612736, 0, 65534, 0, 1, 65534, 0, 2, 65534, -1610612736, 65528, 65534, 0, 65529, 65534, 0, 65530, 65534, 0, 65533, 65534, 0, 65534, 65534, 0, 65535, 65534, 0, 0, 65535, 0, 1, 65535, 1610612736, 2, 65535, 1610612736, 65528, 65535, 0, 65529, 65535, 0, 65530, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0 )
+}
+
+[node name="Button" parent="GridMap/Buttons" index="0" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.15, -0.5 )
+mesh = SubResource( 2 )
+tag = "1"
+
+[node name="Button2" parent="GridMap/Buttons" index="1" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.15, -0.5 )
+mesh = SubResource( 2 )
+tag = "2"
+
+[node name="Button3" parent="GridMap/Buttons" index="2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.15, 5.5 )
+mesh = SubResource( 2 )
+tag = "3"
+
+[node name="1" parent="GridMap/Mechanisms" index="0" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.5, -0.5 )
+tag = "1"
+
+[node name="1_1" parent="GridMap/Mechanisms" index="1" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.05, -0.5 )
+tag = "1"
+
+[node name="1_2" parent="GridMap/Mechanisms" index="2" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.05, -0.5 )
+tag = "1"
+tween_delay = 0.1
+
+[node name="2" parent="GridMap/Mechanisms" index="3" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.5, 1.5 )
+tag = "2"
+
+[node name="2_1" parent="GridMap/Mechanisms" index="4" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.05, 1.5 )
+tag = "2"
+
+[node name="2_2" parent="GridMap/Mechanisms" index="5" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.05, 2.5 )
+tag = "2"
+tween_delay = 0.1
+
+[node name="2_3" parent="GridMap/Mechanisms" index="6" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0.05, 3.5 )
+tag = "2"
+tween_delay = 0.2
+
+[node name="3" parent="GridMap/Mechanisms" index="7" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.5, 5.5 )
+tag = "3"
+
+[node name="3_1" parent="GridMap/Mechanisms" index="8" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.05, 5.5 )
+tag = "3"
+
+[node name="3_2" parent="GridMap/Mechanisms" index="9" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.05, 5.5 )
+tag = "3"
+tween_delay = 0.05
+
+[node name="3_3" parent="GridMap/Mechanisms" index="10" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.05, 4.5 )
+tag = "3"
+tween_delay = 0.1
+
+[node name="3_4" parent="GridMap/Mechanisms" index="11" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.05, 4.5 )
+tag = "3"
+tween_delay = 0.15
+
+[node name="3_5" parent="GridMap/Mechanisms" index="12" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.05, 4.5 )
+tag = "3"
+tween_delay = 0.2
+
+[node name="3_6" parent="GridMap/Mechanisms" index="13" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.05, 5.5 )
+tag = "3"
+tween_delay = 0.25
+
+[node name="3_7" parent="GridMap/Mechanisms" index="14" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.05, 6.5 )
+tag = "3"
+tween_delay = 0.3
+
+[node name="3_8" parent="GridMap/Mechanisms" index="15" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.05, 6.5 )
+tag = "3"
+tween_delay = 0.35
+
+[node name="3_9" parent="GridMap/Mechanisms" index="16" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.05, 6.5 )
+tag = "3"
+tween_delay = 0.4
+
+[node name="Start" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.1, -0.5 )
+
+[node name="Ending" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.05, 5.5 )
+
+[node name="CollisionPolygon" parent="Inbounds" index="0"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -6, 0, 2 )
+polygon = PoolVector2Array( 9, 4, 9, 1, 3, 1, 3, 2, 1, 2, 1, 1, 0, 1, 0, -1, 2, -1, 2, -3, 3, -3, 3, -2, 6, -2, 6, -5, 3, -5, 3, -4, 1, -4, 1, -3, -1, -3, -1, 1, -2, 1, -2, 4, 1, 4, 1, 3, 3, 3, 3, 4 )
